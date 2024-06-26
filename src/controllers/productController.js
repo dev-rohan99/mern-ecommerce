@@ -1,3 +1,4 @@
+import { brandListService, categoryListService, sliderListService, listByBrandService, listBySimilarService, listByKeywordsService, listByRemarkService, productDetailsService, reviewListService, productReviewService } from "../services/productService"
 
 
 export const productBrandList = async (req, res, next) => {
@@ -33,6 +34,10 @@ export const productListByRemark = async (req, res, next) => {
 }
 
 export const productReviewList = async (req, res, next) => {
+    
+}
+
+export const productDetails = async (req, res, next) => {
     
 }
 
