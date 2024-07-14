@@ -1,5 +1,5 @@
 import express from 'express';
-import router from './src/routes/api';
+import router from './src/routes/api.js';
 const app = new express();
 // import packages
 import cors from'cors';
@@ -9,7 +9,7 @@ import mongoSanitize from 'express-mongo-sanitize';
 import xss from 'xss-clean';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
-import color from 'color';
+import color from 'colors';
 import dotenv from 'dotenv';
 import path from "path";
 

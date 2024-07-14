@@ -1,9 +1,9 @@
-import categoryModel from "../models/category";
-import productDetailsModel from "../models/productDetails";
-import productModel from "../models/product";
-import productSliderModel from "../models/productSlider";
-import reviewModel from "../models/review";
-import brandModel from "../models/brand";
+import categoryModel from "../models/category.js";
+import productDetailsModel from "../models/productDetails.js";
+import productModel from "../models/product.js";
+import productSliderModel from "../models/productSlider.js";
+import reviewModel from "../models/review.js";
+import brandModel from "../models/brand.js";
 
 
 
