@@ -45,6 +45,9 @@ export const productListByKeywords = async (req, res, next) => {
 }
 
 export const productListByRemark = async (req, res, next) => {
+
+    const result = await listByRemarkService(req);
+    return res.status(200).json(result);
     
 }
 

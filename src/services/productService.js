@@ -196,15 +196,76 @@ export const listByCategoryService = async (req) => {
     }
 }
 
+/**
+ * product list by remark service
+ * @param {*} req 
+ * @returns 
+ */
+
+export const listByRemarkService = async (req) => {
+
+    try{
+
+        const remark = req.params.remark;
+        const matchStage = {
+            $match: { remark: remark }
+        };
+        const joinWithBrandStage = {
+            $lookup: { 
+                from: "brands",
+                localField: "brandId",
+                foreignField: "_id",
+                as: "brand"
+            }
+        };
+        const joinWithCategoryStage = {
+            $lookup: { 
+                from: "categories",
+                localField: "categoryId",
+                foreignField: "_id",
+                as: "category"
+            }
+        };
+        const unwindBrandStage = {
+            $unwind: "$brand"
+        };
+        const unwindCategoryStage = {
+            $unwind: "$category"
+        };
+        const projectionStage = {
+            $project: { "brand._id": 0, "category._id": 0, "brandId": 0, "categoryId": 0 }
+        };
+
+        const data = await productModel.aggregate([
+            matchStage,
+            joinWithBrandStage,
+            joinWithCategoryStage,
+            unwindBrandStage,
+            unwindCategoryStage,
+            projectionStage
+        ]);
+
+        return {
+            status: "success",
+            data: data
+        }
+
+    }catch(err){
+        return {
+            status: "success",
+            data: err
+        }
+    }
+
+}
+
 export const listBySimilarService = async () => {
+
+    
 
 }
 
 export const listByKeywordsService = async () => {
-
-}
-
-export const listByRemarkService = async () => {
 
 }
 
