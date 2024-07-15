@@ -10,7 +10,7 @@ router.get("/products/product-category-list", productCategoryList);
 router.get("/products/product-slider-list", productSliderList);
 router.get("/products/product-list-by-brand/:brandId", productListByBrand);
 router.get("/products/product-list-by-category/:categoryId", productListByCategory);
-router.get("/products/product-list-by-similar/:keyword", productListBySimilar);
+router.get("/products/product-list-by-similar/:categoryId", productListBySimilar);
 router.get("/products/product-list-by-keywords/:keywords", productListByKeywords);
 router.get("/products/product-list-by-remark/:remark", productListByRemark);
 router.get("/products/product-details/:productId", productDetails);

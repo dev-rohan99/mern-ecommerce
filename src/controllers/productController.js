@@ -38,6 +38,9 @@ export const productListByCategory = async (req, res, next) => {
 
 export const productListBySimilar = async (req, res, next) => {
     
+    const result = await listBySimilarService(req);
+    return res.status(200).json(result);
+
 }
 
 export const productListByKeywords = async (req, res, next) => {
