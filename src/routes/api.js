@@ -15,7 +15,7 @@ router.get("/products/product-list-by-keywords/:keywords", productListByKeywords
 router.get("/products/product-list-by-remark/:remark", productListByRemark);
 router.get("/products/product-details/:productId", productDetails);
 router.get("/products/product-review-list", productReviewList);
-router.get("/products/create-product-review", createProductReview);
+router.post("/products/create-product-review", createProductReview);
 
 
 
