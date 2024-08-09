@@ -24,7 +24,7 @@ export const brandListService = async () => {
 
     }catch(err){
         return {
-            status: "success",
+            status: "failed",
             data: err
         }
     }
@@ -46,7 +46,7 @@ export const categoryListService = async () => {
 
     }catch(err){
         return {
-            status: "success",
+            status: "failed",
             data: err
         }
     }
@@ -68,7 +68,7 @@ export const sliderListService = async () => {
 
     }catch(err){
         return {
-            status: "success",
+            status: "failed",
             data: err
         }
     }
@@ -129,7 +129,7 @@ export const listByBrandService = async (req) => {
 
     }catch(err){
         return {
-            status: "success",
+            status: "failed",
             data: err
         }
     }
@@ -190,7 +190,7 @@ export const listByCategoryService = async (req) => {
 
     }catch(err){
         return {
-            status: "success",
+            status: "failed",
             data: err
         }
     }
@@ -252,7 +252,7 @@ export const listByRemarkService = async (req) => {
 
     }catch(err){
         return {
-            status: "success",
+            status: "failed",
             data: err
         }
     }
@@ -473,15 +473,49 @@ export const productDetailsService = async (req) => {
 
 }
 
-
+/**
+ * review list service
+ * @param {*} req 
+ * @returns 
+ */
 
 export const reviewListService = async (req) => {
 
-    
+    try{
+
+        const reviews = await reviewModel.find();
+
+        return {
+            status: "success",
+            data: reviews
+        }
+
+    }catch(err){
+        return {
+            status: "failed",
+            data: err
+        }
+    }
 
 }
 
-export const productReviewService = async () => {
+export const productReviewService = async (req) => {
+    try{
 
+        const review = await reviewModel.create({
+            ...req.body
+        });
+
+        return {
+            status: "success",
+            data: review
+        }
+
+    }catch(err){
+        return {
+            status: "failed",
+            data: err
+        }
+    }
 }
 

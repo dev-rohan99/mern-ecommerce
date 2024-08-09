@@ -15,10 +15,10 @@ import path from "path";
 
 dotenv.config();
 
-let url = `mongodb+srv://<username>:<password>@cluster0.knhes.mongodb.net/?retryWrites=true&w=majority&dbname=mern-ecommerce`;
+let url = `mongodb://localhost:27017/mern-ecommerce`;
 let options = {user: process.env.MONGO_USER, pass: process.env.MONGO_PASSWORD, autoIndex: true}
 
-mongoose.connect(url, options).then((res) => {
+mongoose.connect(url).then((res) => {
     console.log("Database Connected".bgWhite.black);
 }).catch((err) => {
     console.log(err);
